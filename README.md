@@ -42,3 +42,31 @@ No parameters.
 |----------|---------|------------------------|
 | address  | String  | Email address.         |
 | name     | String? | Recipient/sender name. |
+
+## Developing
+
+Downloading source code and building in command line:
+
+```bash
+$ git clone https://github.com/Letterer/Emails.git
+$ swift package update
+$ swift build
+```
+Opening project in XCode:
+
+```bash
+$ swift package generate-xcodeproj
+$ open Emails.xcodeproj
+```
+
+Before running service you need to set one environment variable: `LETTERER_SENDGRID_KEY`.
+This is secret key genereted by Sendgrid service. Running service:
+
+```bash
+$ .build/debug/Run --port 8001
+```
+
+## Contributing
+
+You can fork and clone repository. Do your changes and pull a request.
+

@@ -1,10 +1,3 @@
-//
-//  EmailsController.swift
-//  Letterer/Emails
-//
-//  Created by Marcin Czachurski on 04/11/2018.
-//
-
 import Foundation
 import Vapor
 import SendGrid

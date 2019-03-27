@@ -1,10 +1,3 @@
-//
-//  EmailAddressDto.swift
-//  App
-//
-//  Created by Marcin Czachurski on 05/11/2018.
-//
-
 import Vapor
 
 /// A single entry of a EmailAddressDto.

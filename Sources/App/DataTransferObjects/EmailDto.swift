@@ -1,10 +1,3 @@
-//
-//  EmailDto.swift
-//  Letterer/Emails
-//
-//  Created by Marcin Czachurski on 04/11/2018.
-//
-
 import Vapor
 
 /// A single entry of a Email.

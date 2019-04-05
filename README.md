@@ -1,6 +1,6 @@
-# :email: Letterer - Emails
+# :email: Mikroservices - SendGridEmails
 
-Microservice for sending emails from Letterer system.
+Microservice for sending emails via SendGrid system.
 
 ## API
 
@@ -8,47 +8,42 @@ Microservice for sending emails from Letterer system.
 
 Endpoint is responsible for sending emails.
 
-**PATH**
+**Request**
 
 ```
-POST /emails
+METHOD: POST
+URL: /emails
+BODY:
+{
+    "to": {
+        "address": "john.doe@email.com",
+        "name": "John Doe"
+    },
+    "from": {
+        "address": "anna.doe@email.com",
+        "name": "Anna Doe"
+    },
+    "replyTo": {
+        "address": "john.doe@email.com",
+        "name": "John Doe"
+    },
+    "title": "Important message",
+    "body": "Hi. This is my message..."
+}
 ```
 
-**REQUEST BODY**
+**Response**
 
-| Object   | Description                     |
-|----------|---------------------------------|
-| EmailDto | JSON object with email details. |
-
-**REQUEST PARAMETERS**
-
-No parameters.
-
-## Schema definitions
-
-### EmailDto
-
-| Property | Type             | Description                                   |
-|----------|------------------|-----------------------------------------------|
-| to       | EmailAddressDto  | The recipient's email address.                |
-| from     | EmailAddressDto? | Sender's email address.                       |
-| replyTo  | EmailAddressDto? | Email address where responses should be send. |
-| title    | String           | Email title.                                  |
-| body     | String           | Email body.                                   |
-
-### EmailAddressDto
-
-| Property | Type    | Description            |
-|----------|---------|------------------------|
-| address  | String  | Email address.         |
-| name     | String? | Recipient/sender name. |
+```
+STATUS: 200 (Ok)
+```
 
 ## Developing
 
 Downloading source code and building in command line:
 
 ```bash
-$ git clone https://github.com/Letterer/Emails.git
+$ git clone https://github.com/Mikroservices/SendGridEmails.git
 $ swift package update
 $ swift build
 ```
@@ -56,14 +51,14 @@ Opening project in XCode:
 
 ```bash
 $ swift package generate-xcodeproj
-$ open Emails.xcodeproj
+$ open SendGridEmails.xcodeproj
 ```
 
-Before running service you need to set one environment variable: `LETTERER_SENDGRID_KEY`.
+Before running service you need to set one environment variable: `MIKROSERVICE_SENDGRIDEMAILS_KEY`.
 This is secret key genereted by Sendgrid service. Running service:
 
 ```bash
-$ .build/debug/Run --port 8001
+$ .build/debug/Run --port 8002
 ```
 
 ## Contributing

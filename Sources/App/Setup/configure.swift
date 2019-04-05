@@ -16,7 +16,6 @@ public func configure(_ config: inout Config, _ env: inout Environment, _ servic
 
 private func registerMiddlewares(services: inout Services) {
     var middlewares = MiddlewareConfig() // Create _empty_ middleware config
-    /// middlewares.use(FileMiddleware.self) // Serves files from `Public/` directory
     middlewares.use(ErrorMiddleware.self) // Catches errors and converts to HTTP response
     services.register(middlewares)
 }
@@ -29,7 +28,7 @@ private func registerRoutes(services: inout Services) throws {
 
 private func registerSendGridProvider(services: inout Services) throws {
 
-    guard let apiKey = Environment.get("LETTERER_SENDGRID_KEY") else { throw Abort(.internalServerError) }
+    guard let apiKey = Environment.get("MIKROSERVICE_SENDGRIDEMAILS_KEY") else { throw Abort(.internalServerError) }
 
     let config = SendGridConfig(apiKey: apiKey)
     services.register(config)

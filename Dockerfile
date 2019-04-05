@@ -1,5 +1,5 @@
 FROM swift:4.2
-LABEL Description="Letterer Emails" Vendor="Marcin Czachurski" Version="1.0"
+LABEL Description="Mikroservice SendGridEmails" Vendor="Marcin Czachurski" Version="1.0"
 
 ADD . /emails
 WORKDIR /emails
